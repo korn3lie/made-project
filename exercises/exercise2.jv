@@ -21,10 +21,8 @@ pipeline TreePlantingPipeline {
     constraint geoCoordinate on text:
         value matches /^(\d{1,3}\.\d+),\s(\d{1,3}\.\d+)$/;
 
-
     constraint stadtTeilVogelsang on text:
         value matches /^Vogelsang.*$/;
-
 
     // Extractor Block
     block TreesFileExtractor oftype HttpExtractor {
