@@ -26,7 +26,7 @@ Air pollution is an important problem in big cities. In this project we analyze 
 
 Washington State Open Data Portal. Free public data published by Washington state agencies and partners.
 
-### Datasource3: Motor Fuel - Gasoline Volumes Distributed
+### Datasource2: Motor Fuel - Gasoline Volumes Distributed
 * Metadata URL: https://data.transportation.gov/Roadways-and-Bridges/Motor-Fuel-Gasoline-Volumes-Distributed/5qxh-t94v/about_data
 * Data URL: https://data.transportation.gov/resource/5qxh-t94v.csv?$limit=50000
 * Data Type: CSV
@@ -34,7 +34,7 @@ Washington State Open Data Portal. Free public data published by Washington stat
 
 Data.Transportation.gov, the U.S. Department of Transportation's public data portal.
 
-### Datasource4: Special Fuel Volumes Distributed
+### Datasource3: Special Fuel Volumes Distributed
 * Metadata URL: https://data.transportation.gov/Roadways-and-Bridges/Special-Fuel-Volumes-Distributed/5n49-mh85/about_data
 * Data URL: https://data.transportation.gov/resource/5n49-mh85.csv?$limit=50000
 * Data Type: CSV
@@ -50,6 +50,7 @@ Chart: https://data.transportation.gov/stories/s/nrec-wf7k#datasets
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
 
 1. Defined Project Plan [#1][i1]
-2. ...
+2. Data Pipeline [#2][i2]
 
 [i1]: https://github.com/korn3lie/made-project/issues/1
+[i2]: https://github.com/korn3lie/made-project/issues/2
