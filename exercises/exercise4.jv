@@ -1,0 +1,116 @@
+pipeline SensorDataPipeline {
+
+    SensorDataExtractor 
+        -> ZipArchiveInterpreter 
+        -> CSVFilePicker
+        -> TemperaturesTextFileInterpreter
+        -> TemperaturesCSVInterpreter
+        -> HeaderWriter1
+        -> HeaderWriter2
+        -> TemperaturesTableInterpreter
+        -> TemperatureTransformer1
+        -> TemperatureTransformer2
+        -> TemperaturesLoader;
+
+
+    // id takes a natural number
+    valuetype natural oftype integer {
+        constraints: [Positive];
+    }
+
+    constraint Positive oftype RangeConstraint {
+        lowerBound: 0;
+    }
+
+    // month takes an int [1,12]
+    valuetype month oftype integer {
+        constraints: [monthRange];
+    }
+
+    constraint monthRange oftype RangeConstraint {
+        lowerBound: 1;
+        upperBound: 12;
+    }
+
+    // temperature transform
+    transform CelsiusToFahrenheit  {
+        from tempCelsius oftype decimal;
+        to tempFahrenheit  oftype decimal;
+        tempFahrenheit: tempCelsius * 9/5;
+    }
+
+    // Extractor Block
+    block SensorDataExtractor oftype HttpExtractor {
+        url: 'https://www.mowesta.com/data/measure/mowesta-dataset-20221107.zip';
+        retries: 2;
+    }
+
+    // unzip
+    block ZipArchiveInterpreter oftype ArchiveInterpreter {
+    archiveType: "zip";
+    }
+
+    // select the file
+    block CSVFilePicker oftype FilePicker {
+    path: "./data.csv";
+    }
+
+    block TemperaturesTextFileInterpreter oftype TextFileInterpreter { }
+
+    block TemperaturesCSVInterpreter oftype CSVInterpreter{
+        delimiter: ";";
+    }
+
+    // Rename header
+    block HeaderWriter1 oftype CellWriter {
+        at: range A1:E1;
+        write: [
+            'id',
+            'producer',
+            'model',
+            'month',
+            'temperature'
+        ];
+    }
+
+    block HeaderWriter2 oftype CellWriter {
+        at: cell J1;
+        write: ['battery_temperature'];
+    }
+
+    // Table interpreter
+    block TemperaturesTableInterpreter oftype TableInterpreter{
+        header: true;
+        columns: [
+            'id' oftype natural,
+            'producer' oftype text,
+            'model' oftype text,
+            'month' oftype month,
+            'temperature' oftype decimal,
+            'battery_temperature' oftype decimal,
+        ];
+    }
+
+
+    // Transform temperatures
+    block TemperatureTransformer1 oftype TableTransformer{
+        inputColumns: ['temperature'];
+        outputColumn: 'temperature';
+        uses: CelsiusToFahrenheit;
+    }
+
+        block TemperatureTransformer2 oftype TableTransformer{
+        inputColumns: ['battery_temperature'];
+        outputColumn: 'battery_temperature';
+        uses: CelsiusToFahrenheit;
+    }
+
+    // Save
+    block TemperaturesLoader oftype SQLiteLoader {
+        table: 'temperatures';
+        file: 'temperatures.sqlite';
+    }
+}
+
+
+// Geraet;Hersteller;Model;Monat;Temperatur in °C (DWD);Latitude (WGS84);Longitude (WGS84);Verschleierung (m);Aufenthaltsdauer im Freien (ms);Batterietemperatur in °C;Geraet aktiv;Aufenthaltsdauer im Freien (ms);Batterietemperatur in °C;Geraet aktiv;...;
