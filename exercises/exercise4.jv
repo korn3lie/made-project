@@ -36,7 +36,7 @@ pipeline SensorDataPipeline {
     transform CelsiusToFahrenheit  {
         from tempCelsius oftype decimal;
         to tempFahrenheit  oftype decimal;
-        tempFahrenheit: tempCelsius * 9/5;
+        tempFahrenheit: (tempCelsius * 9/5) + 32;
     }
 
     // Extractor Block
@@ -108,7 +108,7 @@ pipeline SensorDataPipeline {
     // Save
     block TemperaturesLoader oftype SQLiteLoader {
         table: 'temperatures';
-        file: 'temperatures.sqlite';
+        file: 'temperaturesgit status.sqlite';
     }
 }
 
