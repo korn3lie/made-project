@@ -108,7 +108,7 @@ pipeline SensorDataPipeline {
     // Save
     block TemperaturesLoader oftype SQLiteLoader {
         table: 'temperatures';
-        file: 'temperaturesgit status.sqlite';
+        file: 'temperatures.sqlite';
     }
 }
 
