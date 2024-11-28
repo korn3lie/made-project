@@ -45,12 +45,15 @@ Data.Transportation.gov, the U.S. Department of Transportation's public data por
 Chart: https://data.transportation.gov/stories/s/nrec-wf7k#datasets
 
 
+
 ## Work Packages
 
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
 
 1. Defined Project Plan [#1][i1]
 2. Data Pipeline [#2][i2]
+3. Data Report [#3][i3]
 
 [i1]: https://github.com/korn3lie/made-project/issues/1
 [i2]: https://github.com/korn3lie/made-project/issues/2
+[i3]: https://github.com/korn3lie/made-project/issues/3

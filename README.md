@@ -6,6 +6,9 @@ This repository contains (a) a data science project that is developed by the stu
 To get started, please follow these steps:
 1. Create your own fork of this repository. Feel free to rename the repository right after creation, before you let the teaching instructors know your repository URL. **Do not rename the repository during the semester**.
 
+Contains information from __EV Population History__, which is made available
+[here](https://data.wa.gov/Transportation/Electric-Vehicle-Population-Size-History-By-County/3d5d-sdqb/about_data) under the [Open Database License (ODbL)](https://opendatacommons.org/licenses/odbl/1-0/).
+
 ## Project Work
 Your data engineering project will run alongside lectures during the semester. We will ask you to regularly submit project work as milestones, so you can reasonably pace your work. All project work submissions **must** be placed in the `project` folder.
 
