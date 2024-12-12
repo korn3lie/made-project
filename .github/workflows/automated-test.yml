@@ -20,16 +20,16 @@ jobs:
         miniforge-variant: Mambaforge
         python-version: 3.9
 
-    - name: Navigate to project folder
-      run: cd ./project
 
     - name: Install Dependencies
       run: |
+        cd ./project
         conda env create --name ds-env --file environment.yml || conda activate ds-env && conda env update --file environment.yml --prune
         conda activate ds-env
 
     - name: Run Tests
       run: |
+        cd ./project
         chmod +x tests.sh
         ./tests.sh
 
