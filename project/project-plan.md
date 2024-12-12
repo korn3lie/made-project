@@ -43,8 +43,10 @@ The Air Quality System (AQS) contains ambient air pollution data collected by th
 2. Data Pipeline [#2][i2]
 3. Data Report [#3][i3]
 3. Automated Testing [#4][i4]
+4. Continuous Integration [#5][i5]
 
 [i1]: https://github.com/korn3lie/made-project/issues/1
 [i2]: https://github.com/korn3lie/made-project/issues/2
 [i3]: https://github.com/korn3lie/made-project/issues/3
 [i4]: https://github.com/korn3lie/made-project/issues/4
+[i5]: https://github.com/korn3lie/made-project/issues/5
