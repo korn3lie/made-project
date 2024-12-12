@@ -10,24 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # Step 1: Checkout the repository
     - name: Checkout Code
       uses: actions/checkout@v3
 
+    # Step 2: Set up Miniconda using the new action
     - name: Set up Miniconda
-      uses: conda-incubator/setup-miniconda@v2
+      uses: goanpeca/setup-miniconda@v1
       with:
-        auto-activate-base: false
-        miniforge-variant: Miniforge
-        python-version: 3.9
+        auto-update-conda: true
+        python-version: 3.9  # Specify your Python version
+        environment-file: ./project/environment.yml  # Point to the environment.yml
+        activate-environment: ds-env
 
+    # Step 3: Navigate to the ./project directory
+    - name: Navigate to project folder
+      run: cd ./project
 
-    - name: Install Dependencies
-      run: |
-        cd ./project
-        conda env create --name ds-env --file environment.yml || conda activate ds-env && conda env update --file environment.yml --prune
-
+    # Step 4: Run the test.sh script
     - name: Run Tests
       run: |
-        cd ./project
-        conda run -n ds-env ./tests.sh
-
+        cd ./project  # Ensure we are in the correct folder
+        chmod +x tests.sh
+        ./tests.sh
