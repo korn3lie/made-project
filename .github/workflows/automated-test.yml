@@ -1,4 +1,4 @@
-name: CI for Project Work 6
+name: CI
 
 on:
   push:
@@ -10,26 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Checkout the repository
+
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    # Step 2: Set up Miniconda using the new action
-    - name: Set up Miniconda
-      uses: goanpeca/setup-miniconda@v1
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
       with:
-        auto-update-conda: true
-        python-version: 3.9  # Specify your Python version
-        environment-file: ./project/environment.yml  # Point to the environment.yml
-        activate-environment: ds-env
+          python-version: 3.9
 
-    # Step 3: Navigate to the ./project directory
-    - name: Navigate to project folder
-      run: cd ./project
+    - name: Install Dependencies
+      run: |
+          pip install pytest
+          pip install requests
+          pip install pandas
 
-    # Step 4: Run the test.sh script
     - name: Run Tests
       run: |
-        cd ./project  # Ensure we are in the correct folder
+        cd ./project
         chmod +x tests.sh
         ./tests.sh
+
