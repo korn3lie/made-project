@@ -17,7 +17,7 @@ jobs:
       uses: conda-incubator/setup-miniconda@v2
       with:
         auto-activate-base: false
-        miniforge-variant: Mambaforge
+        miniforge-variant: Miniforge
         python-version: 3.9
 
 
@@ -25,11 +25,9 @@ jobs:
       run: |
         cd ./project
         conda env create --name ds-env --file environment.yml || conda activate ds-env && conda env update --file environment.yml --prune
-        conda activate ds-env
 
     - name: Run Tests
       run: |
         cd ./project
-        chmod +x tests.sh
-        ./tests.sh
+        conda run -n ds-env ./tests.sh
 
