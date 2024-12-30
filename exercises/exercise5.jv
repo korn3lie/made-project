@@ -27,7 +27,6 @@ pipeline StopsDataPipeline {
     constraint value1925 on integer:
         value == 1925;
 
-
     // ----- Extractor Block -----
     block StopsDataExtractor oftype HttpExtractor {
         url: 'https://gtfs.rhoenenergie-bus.de/GTFS.zip';
