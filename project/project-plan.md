@@ -2,7 +2,7 @@
 
 ## Title
 <!-- Give your project a short title. -->
-Impact of Electric Car adoption on CO2 emission and motor fuel consumption/sales.
+Impact of Electric Car adoption on air pollution.
 
 ## Main Question
 
@@ -42,11 +42,13 @@ The Air Quality System (AQS) contains ambient air pollution data collected by th
 1. Defined Project Plan [#1][i1]
 2. Data Pipeline [#2][i2]
 3. Data Report [#3][i3]
-3. Automated Testing [#4][i4]
-4. Continuous Integration [#5][i5]
+4. Automated Testing [#4][i4]
+5. Continuous Integration [#5][i5]
+6. Analysis Report [#6][i6]
 
 [i1]: https://github.com/korn3lie/made-project/issues/1
 [i2]: https://github.com/korn3lie/made-project/issues/2
 [i3]: https://github.com/korn3lie/made-project/issues/3
 [i4]: https://github.com/korn3lie/made-project/issues/4
 [i5]: https://github.com/korn3lie/made-project/issues/5
+[i6]: https://github.com/korn3lie/made-project/issues/6
