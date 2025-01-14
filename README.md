@@ -1,9 +1,9 @@
 # MADE: Methods of Advanced Data Engineering
 
-MADE is module at FAU.
+MADE is module at FAU University.
 This repository contains:
 -  a data science project that is developed by the student over the course of the semester.
--  the exercises that are submitted over the course of the semester.
+-  the [Jayvee](https://jvalue.github.io/jayvee/) exercises that are submitted over the course of the semester.
 
 
 ## Project: Impact of EV adoption on air pollution.
